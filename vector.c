@@ -32,13 +32,44 @@ return clone;
 }
 
 // Returns -1 if vector1 is greater than vector2, 0 if both are equal, and 1 if vector2 if greater
+// Vector1 is greater than vector2 if and only if vector1[i] >= vector2[i] for all i and vice versa
 int compareVectors(int *vector1, int *vector2){
+
+    int comparator = 0;
+    int counter = 0;
+
+    while (vector1[counter] != NULL && vector2[counter] != NULL){
+        if (vector1[counter] >= vector2[counter]){
+            comparator--; 
+        }
+        if (vector1[counter] <= vector2[counter]){
+            comparator++;
+        }
+
+        counter++;
+    }
+
+    if (comparator == abs(counter)) { // One of the vectors is greater
+        if (comparator > 1) {
+            comparator = 1;
+            return comparator;
+        }
+        else {
+            comparator = -1;
+            return comparator;
+        }
+    }
+    else {
+        comparator = 0;
+        return comparator;
+    }
 
 
 }
 
 // Returns a pointer to a new matrix which is the sum of both matricies passed in
 int **addMatricies (int **matrix1, int **matrix2){
+    
 
 }
 
