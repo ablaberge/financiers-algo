@@ -19,7 +19,7 @@ void isSafe(int *available, int **alloc_matrix, int **need_matrix, int length, i
 
     while (found && num_finished < length)
     {
-        found = 0;
+        found = 0; // Keeps track of if at least one process in this iteration could finish
 
         for (int i = 0; i < length; i++)
         {
