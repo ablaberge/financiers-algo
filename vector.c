@@ -7,7 +7,7 @@
 int **cloneMatrix(int **matrix, int length, int width)
 {
 
-    int **clone = (int **)malloc(sizeof(int) * length);
+    int **clone = (int **)malloc(sizeof(int*) * length);
     for (int i = 0; i < length; i++)
     {
         clone[i] = (int *)malloc(sizeof(int) * width);
@@ -53,9 +53,9 @@ int compareVectors(int *vector1, int *vector2, int length)
     }
 
     if (vector1_greater) {
-        return 1;  // Vector1 is greater
+        return -1;  // Vector1 is greater
     } else if (vector2_greater) {
-        return -1; // Vector2 is greater
+        return 1; // Vector2 is greater
     } else {
         return 0; // Consider the vectors equal
     }
