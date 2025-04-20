@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include "vector.h"
 
-// TODO - Define vector and matrix operations
 
 // Returns a pointer to the new cloned matrix
 int **cloneMatrix(int **matrix, int length, int width)

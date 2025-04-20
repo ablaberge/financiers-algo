@@ -51,9 +51,32 @@ int main(int argc, char *argv[])
     }
   }
 
+  // Sanity check:
+
+  for (int i = 0; i < NPROC; i++)
+  {
+    for (int j = 0; j < NRES; j++)
+    {
+      // Ensure that the currently allocated resources do not exceed the total number of resources.
+      if (alloc_matrix[i][j] > available[i])
+      {
+        printf("Integrity test failed: allocated resources exceed total resources\n");
+        return;
+      }
+      
+      // Ensure each thread’s needs do not exceed its max demands for each resource type.
+      if (alloc_matrix[i][j] > max_matrix[i][j])
+      {
+        printf("Integrity test failed: allocated resources exceed demand for Thread %d", i);
+        printf("Need %d instances of resource %d",max_matrix[i][j] - alloc_matrix[i][j], j);
+        return;
+      }
+    }
+  }
+
+
+
   // TODO: Run banker's safety algorithm
-
-
 
   // TODO: return malloc'd mem (alloc_matrix, max_matrix, available vector)
 
